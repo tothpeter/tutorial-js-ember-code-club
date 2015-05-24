@@ -4,6 +4,8 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'code-club',
     environment: environment,
+    contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
+    firebase: 'https://radiant-heat-5924.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
