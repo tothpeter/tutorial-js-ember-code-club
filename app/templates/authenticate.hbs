@@ -1,3 +1,15 @@
-<input type="email">
-<input type="password">
-<button type="submit">Log in</button>
+<form {{ action "authenticate" on="submit" }}>
+  {{ input type="email" value=model.credentials.email placeholder="E-mail" }}
+  {{ input type="password" value=model.credentials.password placeholder="Password" }}
+  <button type="submit" disabled="{{model.isLoading}}">
+    {{#if model.isLoading}}
+      Logging in ..
+    {{else}}
+      Log in
+    {{/if}}
+  </button>
+
+  {{#if model.error}}
+    <p>{{model.error}}</p>
+  {{/if}}
+</form>
